@@ -1,4 +1,4 @@
-		        __       ________   _______   _____   _     _    __
+		           __       ________   _______   _____   _     _    __
                     |  |     |__    __| |   ____| |  _  | | \   / |   \ \           
                     |  |        |  |    |  |__    | |_| | |  \_/  |    \ \          
                     |  |      o |  |    |     |   |   __| |   _   |     \ \         
@@ -8,11 +8,13 @@
 
 # lterm: Online bash terminal(emulator) tutorial
 
-Check out the site live at **<a href="https://sr6033.github.io/lterm/">lterm</a>**.
+Check out the site live at <i class="fa fa-long-arrow-right" aria-hidden="true"></i> **<a href="https://sr6033.github.io/lterm/">lterm</a>**.
 
-**lterm** is an online **Terminal Eminulator**. It is a step by step tutorial that will teach you the **bash** commands by making you execute them. Nothing is better than learning by doing.
+**lterm** is an online **Terminal Eminulator**. It is a step by step tutorial that will teach you the **bash** commands by making you execute them. 
 
-It is fully online and doesn't require any extra shitty access. Being an emulator, it only virtualizes a terminal environment and so the commands executed doesn't effect the server or your local machine. 
+*Nothing is better than learning by doing.*
+
+It is fully online and doesn't require any extra shitty access. Being an emulator, it only virtualizes a terminal environment and so the commands executed doesn't effect either the server or your local machine. 
 
 ### List of commands available presently
 
