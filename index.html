@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Locale Javascript Interpreter">
+  <meta name="keywords" content="HTML,CSS,JavaScript,Nodejs">
+  <meta name="author" content="Shubham Rath">
+  <title>locale.js</title>
+
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="js/jquery.terminal.min.js"></script>
+    <link href="css/jquery.terminal.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<script src="js/main.js"></script>
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+<script>
+
+    var code = ''; 
+    var editor1 = ace.edit("editor1");
+    editor1.setTheme("ace/theme/tomorrow_night_eighties");
+    editor1.session.setMode("ace/mode/javascript");
+    editor1.setAutoScrollEditorIntoView(true);
+    editor1.setOption("maxLines", 25);
+    editor1.setOption("minLines", 20);
+
+    var editor2 = ace.edit("editor2");
+    editor2.setTheme("ace/theme/tomorrow");
+    editor2.session.setMode("ace/mode/text");
+    editor2.setAutoScrollEditorIntoView(true);
+    editor2.setOption("maxLines", 30);
+    editor2.setOption("minLines", 5);
+    
+    code = editor1.getValue();
+
+    var socket = io.connect('http://127.0.0.1:4000');
+    socket.on('connect', function(data) {
+        $( "#submit" ).click(function() {
+            code = editor1.getValue();
+            socket.emit('join', code);
+            //console.log(code);
+        });
+        
+    });    
+
+    socket.on('output', function(data) {
+        //console.log(data);
+        editor2.setValue(data);
+    });
+
+    $( "#save" ).click(function() {
+        var blob = new Blob([code], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, "program .js");
+
+    });
+
+</script> 
+-->
+</body>
+</html>

@@ -1,0 +1,74 @@
+body {
+  font-family: monospace;
+  font-size: 20px;
+  background-color:#222;
+  color:#ccc;
+}
+
+.container{
+  width: 63%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a{
+  color: #329efc;
+}
+
+.brown{
+  color: #894305;
+}
+
+.blue{
+  color: #329efc;
+}
+
+.green{
+  color: #16f71d;
+}
+
+.magenta{
+  color: #f21094;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* ----- blinking cursor animation ----- */
+.typed-cursor{
+  opacity: 1;
+  -webkit-animation: blink 0.95s infinite;
+  -moz-animation: blink 0.95s infinite;
+  -ms-animation: blink 0.95s infinite;
+  -o-animation: blink 0.95s infinite;
+  animation: blink 0.95s infinite;
+}
+
+@-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-ms-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes blink{
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
