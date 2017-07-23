@@ -6,23 +6,25 @@ jQuery(document).ready(function($)
 
     $('body').terminal({
         help: function() {
-            this.echo('List of commands available:');
+            this.echo('\nList of commands available:');
             this.echo('===========================\n');
-            this.echo('[[b;#44D544;]about]');
-            this.echo('echo ----------- ' + task[arr[0]]);
-            this.echo('pwd ------------ ' + task[arr[1]]);
-            this.echo('ls ------------- ' + task[arr[2]]);
-            this.echo('cd ------------- ' + task[arr[3]]);
-            this.echo('cat ------------ ' + task[arr[4]]);
-            this.echo('touch ---------- ' + task[arr[5]]);
-            this.echo('cp ------------- ' + task[arr[6]]);
-            this.echo('rm ------------- ' + task[arr[7]]);
-            this.echo('mkdir ---------- ' + task[arr[8]]);
+            this.echo('> [[b;#44D544;]about]');
+            this.echo('> echo ----------- ' + task[arr[0]]);
+            this.echo('> pwd ------------ ' + task[arr[1]]);
+            this.echo('> ls ------------- ' + task[arr[2]]);
+            this.echo('> cd ------------- ' + task[arr[3]]);
+            this.echo('> cat ------------ ' + task[arr[4]]);
+            this.echo('> touch ---------- ' + task[arr[5]]);
+            this.echo('> cp ------------- ' + task[arr[6]]);
+            this.echo('> rm ------------- ' + task[arr[7]]);
+            this.echo('> mkdir ---------- ' + task[arr[8]]);
+            this.echo('\n');
         },
         echo: function(arg1) {
             arr[0] = 1;
             this.echo(arg1 + '\n');
             this.echo('> The [[b;#ff3300;]echo] command prints back your arguments.');
+            this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
             this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
         },
         //rpc: 'some_file.php',
