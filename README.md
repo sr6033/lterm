@@ -8,7 +8,7 @@
 
 # lterm: Online bash terminal(emulator) tutorial
 
-Check out the site live at <i class="fa fa-long-arrow-right" aria-hidden="true"></i> **<a href="https://sr6033.github.io/lterm/">lterm</a>**.
+Check out the site live at ![lterm](https://img.shields.io/badge/webiste-live-blue.svg) **<a href="https://sr6033.github.io/lterm/">lterm</a>**.
 
 **lterm** is an online **Terminal Eminulator**. It is a step by step tutorial that will teach you the **bash** commands by making you execute them. 
 
