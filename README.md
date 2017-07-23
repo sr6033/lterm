@@ -1,4 +1,4 @@
-		     __       ________   _______   _____   _     _    __
+		        __       ________   _______   _____   _     _    __
                     |  |     |__    __| |   ____| |  _  | | \   / |   \ \           
                     |  |        |  |    |  |__    | |_| | |  \_/  |    \ \          
                     |  |      o |  |    |     |   |   __| |   _   |     \ \         
@@ -14,15 +14,17 @@ Check out the site live at **<a href="https://sr6033.github.io/lterm/">lterm</a>
 
 It is fully online and doesn't require any extra shitty access. Being an emulator, it only virtualizes a terminal environment and so the commands executed doesn't effect the server or your local machine. 
 
-## List of commands available presently
+### List of commands available presently
 
-- echo
-- pwd
-- ls
-- cd
-- cat
-- touch
-- cp/mv
-- mkdir
+- `echo`
+- `pwd`
+- `ls`
+- `cd`
+- `cat`
+- `touch`
+- `cp`/`mv`
+- `mkdir`
+
+### Contributing
 
 Anybody willing to contribute and add more commands are more than welcome. 
