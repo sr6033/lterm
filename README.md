@@ -29,7 +29,7 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 ### Contributing 
 
-- Developers who want to contribute, [![fork](https://img.shields.io/badge/style-0-green.svg?style=social&label=Fork&link=https://github.com/sr6033/lterm/fork&link=https://github.com/sr6033/lterm/network)](https://github.com/sr6033/lterm/fork) this repo and edit the file **js/main.js** to add your commands. 
+- Developers who want to contribute, [![fork](https://img.shields.io/badge/style-0-green.svg?style=social&label=Fork&link=https://github.com/sr6033/lterm/fork&link=https://github.com/sr6033/lterm/network)](https://github.com/sr6033/lterm/fork) this repo and edit the file **<a href="https://github.com/sr6033/lterm/blob/master/js/main.js">js/main.js</a>** to add your commands. 
 - You don't have to worry about any other files or programs.
 
 ---
@@ -68,3 +68,4 @@ cd: function(arg1) {
 
 - On addition of a new **command**, increase the size of `arr` array. This array acts like a counter to check if a **task/command** is completed or not.
 - If you face any problem or cannot understand anything, open up an **issue**.
+- You can also edit the **readme** and make it more user friendly to help out new contributers.
