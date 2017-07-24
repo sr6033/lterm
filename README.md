@@ -27,9 +27,9 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - `cp`/`mv`
 - `mkdir`
 
-### Contributing
+### Contributing 
 
-- Developers who want to contribute, [![fork](https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork)](https://github.com/sr6033/lterm) this repo and edit the file **js/main.js** to add your commands. 
+- Developers who want to contribute, [![fork](https://img.shields.io/badge/style-social-green.svg?style=social)](https://github.com/sr6033/lterm) this repo and edit the file **js/main.js** to add your commands. 
 - You don't have to worry about any other files or programs.
 
 ---
