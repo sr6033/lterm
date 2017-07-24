@@ -1,11 +1,18 @@
+// Add more commands as shown. Don't mess where the DANGER is high.
+
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0];
-    var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];
+    var arr = [0,0,0,0,0,0,0,0,0];  // Keeps track of different commands(i.e., if they are completed or not)
+                                    // 0 -> not completed
+                                    // 1 -> completed 
+    var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
 
     $('body').terminal({
         help: function() {
+
+            // Add the new commands to this list also.
+            
             this.echo('\nList of commands available:');
             this.echo('===========================\n');
             this.echo('> [[b;#44D544;]about]');
@@ -46,7 +53,7 @@ jQuery(document).ready(function($)
         },
         cd: function(arg1) {
 
-            // Wrong directory error
+            // to add wrong directory error 
 
             this.echo("> cd stands for Change Directory. You just changed your directory.");
             this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd].");
@@ -168,6 +175,10 @@ jQuery(document).ready(function($)
             this.echo("> If you wish to know more then head over to my [[b;#ff3300;]blog: The Roving Cosmonaut] <http://sr6033.github.io/>");
         },
     }, {
+        
+        // DANGER: high
+        // Don't mess with this part or else all HELL will fall loose.
+
     	prompt:"[[b;#44D544;]lterm@localhost:~$] ",
         greetings: "____      ________   _______   _____   _     _    __            \n" +
                    "|  |     |__    __| |   ____| |  _  | | \\   / |   \\ \\           \n" +

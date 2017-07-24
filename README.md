@@ -29,4 +29,40 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 ### Contributing
 
-Anybody willing to contribute and add more commands are more than welcome. 
+- Developers who want to contribute, **fork** this repo and edit the file **js/main.js** to add your commands. 
+- You don't have to worry about any other files or programs.
+
+---
+
+- If a **command** doesn't need further steps:
+
+{% highlight js %}
+ls: function() {
+        this.echo('This is the ls command\n');
+}
+{% endhighlight %}
+
+{% highlight js %}
+echo: function(arg1) {
+        this.echo('This is the echo command\n');
+}
+{% endhighlight %}
+
+- If a **command** needs further steps:
+
+{% highlight js %}
+cd: function(arg1) {
+	this.push(function(cmd, term) {
+                if(cmd == 'another_command')
+                    this.echo('another_command');
+		}, {
+                    prompt: '[[b;#44D544;]lterm@localhost/' + arg1 + ':~$] ',
+                   }
+        );
+}
+{% endhighlight %}
+
+---
+
+- On addition of a new **command**, increase the size of `arr` array. This array acts like a counter to check if a **task/command** is completed or not.
+- If you face any problem or cannot understand anything, open up an **issue**.
