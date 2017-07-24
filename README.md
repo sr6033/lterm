@@ -42,15 +42,15 @@ ls: function() {
 }
 ```
 
-{% highlight js %}
+```
 echo: function(arg1) {
         this.echo('This is the echo command\n');
 }
-{% endhighlight %}
+```
 
 - If a **command** needs further steps:
 
-{% highlight js %}
+```
 cd: function(arg1) {
 	this.push(function(cmd, term) {
                 if(cmd == 'another_command')
@@ -60,7 +60,7 @@ cd: function(arg1) {
                    }
         );
 }
-{% endhighlight %}
+```
 
 ---
 
