@@ -69,3 +69,6 @@ cd: function(arg1) {
 - On addition of a new **command**, increase the size of `arr` array. This array acts like a counter to check if a **task/command** is completed or not.
 - If you face any problem or cannot understand anything, open up an **issue**.
 - You can also edit the **readme** and make it more user friendly to help out new contributers.
+
+> Note: Kindly have interpretable & good commit messages. Don't assume me to be some **Jedi** with powers to be able to make out every commit with a single word as message.
+*May the Force be with you.*
