@@ -36,11 +36,11 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 - If a **command** doesn't need further steps:
 
-{% highlight js %}
+```
 ls: function() {
         this.echo('This is the ls command\n');
 }
-{% endhighlight %}
+```
 
 {% highlight js %}
 echo: function(arg1) {
