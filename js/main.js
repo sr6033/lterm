@@ -200,7 +200,7 @@ jQuery(document).ready(function($)
                    "> The shell is basically a program that takes your commands from the keyboard and sends them to the operating system to perform.\n" +
                    "> The [[b;#44D544;]Terminal] is a program that launches a shell for you.\n" +
                    "> Type [[b;#ff3300;]help] to see the list of [[b;#44D544;]commands/tasks].\n\n" +
-                   "> Start with [[b;#ff3300;]echo <any string>].\n",
+                   '> Start with [[b;#ff3300;]echo "any string"].\n',
         onBlur: function() {
             // prevent loosing focus
             return false;
