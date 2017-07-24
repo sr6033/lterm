@@ -29,7 +29,7 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 ### Contributing
 
-- Developers who want to contribute, **fork** this repo and edit the file **js/main.js** to add your commands. 
+- Developers who want to contribute, [![fork](https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork)](https://github.com/sr6033/lterm) this repo and edit the file **js/main.js** to add your commands. 
 - You don't have to worry about any other files or programs.
 
 ---
@@ -37,14 +37,16 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - If a **command** doesn't need further steps:
 
 ```
+// without argument
 ls: function() {
         this.echo('This is the ls command\n');
 }
 ```
 
 ```
+// with argument
 echo: function(arg1) {
-        this.echo('This is the echo command\n');
+        this.echo('This is the echo command' + arg1 + '\n');
 }
 ```
 
