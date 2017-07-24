@@ -12,10 +12,11 @@ jQuery(document).ready(function($)
         help: function() {
 
             // Add the new commands to this list also.
-            
+
             this.echo('\nList of commands available:');
             this.echo('===========================\n');
             this.echo('> [[b;#44D544;]about]');
+            this.echo('> [[b;#44D544;]contribute]');
             this.echo('> echo ----------- ' + task[arr[0]]);
             this.echo('> pwd ------------ ' + task[arr[1]]);
             this.echo('> ls ------------- ' + task[arr[2]]);
@@ -168,6 +169,11 @@ jQuery(document).ready(function($)
             sub: function(a, b) {
                 this.echo(a-b);
             }
+        },
+        contribute: function() {
+            this.echo('\n> Hey new developer! Want to join in and add some more fun?');
+            this.echo('> Why wait then? Fork this repo and pull in.');
+            this.echo('> Link: <https://github.com/sr6033/lterm>\n');
         },
         about: function() {
             this.echo('> Hey [[b;#44D544;]netizen], welcome to my [[b;#ff3300;]Terminal Emulator]. I hope you have fun learning the [[b;#44D544;]bash] commands.\n');
