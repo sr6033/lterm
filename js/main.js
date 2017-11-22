@@ -3,9 +3,10 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0];  // Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
+                                    // added 1 more position
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
 
     $('body').terminal({
@@ -26,6 +27,7 @@ jQuery(document).ready(function($)
             this.echo('> cp ------------- ' + task[arr[6]]);
             this.echo('> rm ------------- ' + task[arr[7]]);
             this.echo('> mkdir ---------- ' + task[arr[8]]);
+            this.echo('> clear -----------' + task[arr[9]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -57,16 +59,26 @@ jQuery(document).ready(function($)
             // to add wrong directory error 
 
             this.echo("> cd stands for Change Directory. You just changed your directory.");
-            this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd].");
+            this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd]."); 
+            this.echo("> To return back to the [[b;#44D544;]previous directory] you should type [[b;#ff3300;]cd ..].") //
             this.echo("> To return back to the [[b;#44D544;]home] directory you should type [[b;#ff3300;]cd ~].")
             this.push(function(cmd, term) {
                 if(cmd == 'pwd')
                     this.echo('/home/lterm/' + arg1);
                 else
-                if(cmd == 'cd ~')
+                if(cmd == 'cd ..')
+                {
+                    
+                    this.echo('you will get something like -> /home/lterm/ since you were on /home/lterm/Documents'  );
+                    this.echo('Type [[b;#ff3300;]cd ~] to continue');
+                    this.echo('Type [[b;#ff3300;]exit] to exit [[b;#ff3300;]cd] command and then [[b;#ff3300;]cat hello.txt] to continue.');
+1
+                }
+                else if(cmd == 'cd ~')
                 {
                     arr[3] = 1;
-                    this.echo('Type [[b;#ff3300;]exit] and then [[b;#ff3300;]cat hello.txt] to continue.');
+                    this.echo('Type [[b;#ff3300;]cd ..] to continue');
+                    this.echo('Type [[b;#ff3300;]exit] to exit [[b;#ff3300;]cd] command and then [[b;#ff3300;]cat hello.txt] to continue.');
                 }
                 else
                     this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
@@ -75,6 +87,8 @@ jQuery(document).ready(function($)
                     }
             );
         },
+
+
         cat: function(arg1) {
             if(arg1 !== 'hello.txt')
             {
@@ -142,7 +156,7 @@ jQuery(document).ready(function($)
                 {
                     arr[7] = 1;
                     this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n[[b;#44D544;]hello.txt]\n');
-                    this.echo('> Now type [[b;#ff3300;]exit] and then [[b;#ff3300;]mkdir directory_name] to continue')
+                    this.echo('> Now type [[b;#ff3300;]exit] and then [[b;#ff3300;]mkdir directory_name] to continue');
                 }
                 else
                     this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
@@ -156,12 +170,25 @@ jQuery(document).ready(function($)
                 {
                     arr[8] = 1;
                     this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n' + arg1 + '[[b;#44D544;]hello.txt]\n');
-                    this.echo('Type [[b;#ff3300;]exit] to move back to [[b;#44D544;]home]')
+                    this.echo('Type [[b;#ff3300;]exit] to move back to [[b;#44D544;]home] and then type [[b;#ff3300;]Clear](Upper C) to continue');
                 }
                 else
                     this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
             });
         },
+        Clear: function() {
+            this.echo('> The clear(lower C) command, clears your terminal screen');
+            this.echo('> Type [[b;#ff3300;]clear] to clean your terminal');
+            this.push(function(cmd,term) {
+                if(cmd == 'clear')
+                {
+                    arr[9]=1;          
+                }
+                else 
+                    this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
+            });
+        },
+
         calc: {
             add: function(a, b) {
                 this.echo(a+b);
