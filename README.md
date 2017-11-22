@@ -22,7 +22,9 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - `pwd`
 - `ls`
 - `cd`
+- `cd..`
 - `cat`
+- `clear`
 - `touch`
 - `cp`/`mv`
 - `mkdir`
