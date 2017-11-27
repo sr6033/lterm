@@ -207,6 +207,9 @@ jQuery(document).ready(function($)
             this.echo("> I'm [[b;#44D544;]Shubham Rath], a computer science undergrad at IIIT-bh.");
             this.echo("> If you wish to know more then head over to my [[b;#ff3300;]blog: The Roving Cosmonaut] <http://sr6033.github.io/>");
         },
+        cat: function(file) {
+            this.echo('> showing ' + file + ' content');
+        }
     }, {
         
         // DANGER: high
