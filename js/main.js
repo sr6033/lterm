@@ -180,7 +180,7 @@ jQuery(document).ready(function($)
             this.echo('> The clear(lower C) command, clears your terminal screen');
             this.echo('> Type [[b;#ff3300;]clear] to clean your terminal');
             this.push(function(cmd,term) {
-                if(cmd == 'clear')
+                if(cmd == 'clear' || cmd == 'Clear') //Changed here
                 {
                     arr[9]=1;          
                 }
