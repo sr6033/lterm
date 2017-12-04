@@ -28,6 +28,7 @@ jQuery(document).ready(function($)
             this.echo('> rm ------------- ' + task[arr[7]]);
             this.echo('> mkdir ---------- ' + task[arr[8]]);
             this.echo('> clear -----------' + task[arr[9]]);
+            this.echo('> ipconfig -----------' + task[arr[10]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -197,6 +198,16 @@ jQuery(document).ready(function($)
                 this.echo(a-b);
             }
         },
+        ipconfig: function(arg1) {
+            arr[10] = 1;
+            this.echo(arg1 + '\n');
+            this.echo('> The [[b;#ff3300;]ipconfig] command prints back your arguments.');
+            this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
+            this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
+        },
+        
+        
+        
         contribute: function() {
             this.echo('\n> Hey new developer! Want to join in and add some more fun?');
             this.echo('> Why wait then? Fork this repo and pull in.');
