@@ -28,6 +28,8 @@ jQuery(document).ready(function($)
             this.echo('> rm ------------- ' + task[arr[7]]);
             this.echo('> mkdir ---------- ' + task[arr[8]]);
             this.echo('> clear -----------' + task[arr[9]]);
+            this.echo('> uname -----------' + task[arr[10]]);
+            
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -188,6 +190,17 @@ jQuery(document).ready(function($)
                     this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
             });
         },
+        uname: function() {
+                arr[10] = 1;
+                this.echo('lterm\n');
+                this.echo('> [[b;#ff3300;]uname] find out the name of the unix/Linux system we are using.\n'+
+                    '\n> Print system information \n'+'\n> With no '+
+                'option used it is same as -s\n');
+                this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
+
+
+            },
+
 
         calc: {
             add: function(a, b) {
