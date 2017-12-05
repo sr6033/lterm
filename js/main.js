@@ -3,7 +3,7 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
@@ -30,8 +30,7 @@ jQuery(document).ready(function($)
             this.echo('> clear -----------' + task[arr[9]]);
             this.echo('> uname -----------' + task[arr[10]]);
             this.echo('> date  -----------' + task[arr[11]]);
-
-            
+            this.echo('> ipconfig --------' + task[arr[12]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -226,6 +225,16 @@ jQuery(document).ready(function($)
                 this.echo(a-b);
             }
         },
+        ipconfig: function(arg1) {
+            arr[12] = 1;
+            this.echo(arg1 + '\n');
+            this.echo('> The [[b;#ff3300;]ipconfig] command prints back your arguments.');
+            this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
+            this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
+        },
+        
+        
+        
         contribute: function() {
             this.echo('\n> Hey new developer! Want to join in and add some more fun?');
             this.echo('> Why wait then? Fork this repo and pull in.');
