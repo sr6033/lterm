@@ -3,7 +3,7 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
@@ -28,7 +28,9 @@ jQuery(document).ready(function($)
             this.echo('> rm ------------- ' + task[arr[7]]);
             this.echo('> mkdir ---------- ' + task[arr[8]]);
             this.echo('> clear -----------' + task[arr[9]]);
-            this.echo('> ipconfig --------' + task[arr[10]]);
+            this.echo('> uname -----------' + task[arr[10]]);
+            this.echo('> date  -----------' + task[arr[11]]);
+            this.echo('> ipconfig --------' + task[arr[12]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -189,6 +191,31 @@ jQuery(document).ready(function($)
                     this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
             });
         },
+        uname: function() {
+                arr[10] = 1;
+                this.echo('lterm\n');
+                this.echo('> [[b;#ff3300;]uname] find out the name of the unix/Linux system we are using.\n'+
+                    '\n> Print system information \n'+'\n> With no '+
+                'option used it is same as -s\n');
+                this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
+        },
+        date:function()
+        {
+            arr[11]=1;
+            this.echo('\n> [[b;#ff3300;]date] displays the current date and time\n');
+
+
+
+            var d = new Date();
+            var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+            var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            var months=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+            var name_of_day=days[d.getDay()];
+            var name_of_month=months[d.getMonth()];
+            this.echo(name_of_day+' '+name_of_month+' '+d.getDate()+' '+time+' IST '+d.getFullYear()+'\n');
+
+        },
+
 
         calc: {
             add: function(a, b) {
@@ -199,7 +226,7 @@ jQuery(document).ready(function($)
             }
         },
         ipconfig: function(arg1) {
-            arr[10] = 1;
+            arr[12] = 1;
             this.echo(arg1 + '\n');
             this.echo('> The [[b;#ff3300;]ipconfig] command prints back your arguments.');
             this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
