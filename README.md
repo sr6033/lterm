@@ -18,16 +18,16 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 ### List of commands available presently
 
-- `echo`
-- `pwd`
-- `ls`
-- `cd`
-- `cd..`
-- `cat`
-- `clear`
-- `touch`
-- `cp`/`mv`
-- `mkdir`
+- `echo`-To display a line of text.
+- `pwd`-Tells you the present working directory in which you are working
+- `ls`-List of all files.
+- `cd`-To change directory - change the current working directory to a specific Folder.
+- `cd..`-This will move you up one directory.
+- `cat`-Concatenate and print the content of files.
+- `clear`-Clear the terminal.
+- `touch`- Change file timestamps.
+- `cp`/`mv`-To copy/move files.
+- `mkdir`-To make directories.
 
 ### Contributing 
 
