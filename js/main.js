@@ -3,7 +3,7 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
@@ -30,7 +30,7 @@ jQuery(document).ready(function($)
             this.echo('> clear -----------' + task[arr[9]]);
             this.echo('> uname -----------' + task[arr[10]]);
             this.echo('> date  -----------' + task[arr[11]]);
-            this.echo('> ipconfig --------' + task[arr[12]]);
+            this.echo('> tty   -----------' + task[arr[12]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -215,7 +215,7 @@ jQuery(document).ready(function($)
             this.echo(name_of_day+' '+name_of_month+' '+d.getDate()+' '+time+' IST '+d.getFullYear()+'\n');
 
         },
-
+        
 
         calc: {
             add: function(a, b) {
@@ -233,6 +233,13 @@ jQuery(document).ready(function($)
             this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
         },
         
+        tty: function() {
+            arr[13] = 1;
+            this.echo('/dev/lterm\n');
+            this.echo('> [[b;#ff3300;]tty]is used to print the file name of the terminal connected to standard input (keyboard)\n');
+            this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
+
+        },
         
         
         contribute: function() {
