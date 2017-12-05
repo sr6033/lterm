@@ -30,6 +30,7 @@ jQuery(document).ready(function($)
             this.echo('> clear -----------' + task[arr[9]]);
             this.echo('> uname -----------' + task[arr[10]]);
             this.echo('> date  -----------' + task[arr[11]]);
+            this.echo('> ipconfig -----------' + task[arr[11]]);
             this.echo('> tty   -----------' + task[arr[12]]);
             this.echo('\n');
         },
