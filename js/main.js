@@ -28,7 +28,7 @@ jQuery(document).ready(function($)
             this.echo('> rm ------------- ' + task[arr[7]]);
             this.echo('> mkdir ---------- ' + task[arr[8]]);
             this.echo('> clear -----------' + task[arr[9]]);
-            this.echo('> ipconfig -----------' + task[arr[10]]);
+            this.echo('> ipconfig --------' + task[arr[10]]);
             this.echo('\n');
         },
         echo: function(arg1) {
