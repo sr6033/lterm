@@ -18,16 +18,16 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 ### List of commands available presently
 
-- `echo`-To display a line of text.
-- `pwd`-Tells you the present working directory in which you are working
-- `ls`-List of all files.
-- `cd`-To change directory - change the current working directory to a specific Folder.
-- `cd..`-This will move you up one directory.
-- `cat`-Concatenate and print the content of files.
-- `clear`-Clear the terminal.
-- `touch`- Change file timestamps.
-- `cp`/`mv`-To copy/move files.
-- `mkdir`-To make directories.
+- `echo`    [To display a string]
+- `pwd`     [Shows you the present working directory]
+- `ls`      [Lists all the files]
+- `cd`      [To change directory - change the current working directory to a specific directory]
+- `cd..`    [Moves you up one directory(parent)]
+- `cat`     [Concatenate and print the content of files]
+- `clear`   [Clears the terminal screen]
+- `touch`   [Changes file timestamps or creates a new file]
+- `cp`/`mv` [To copy/move files]
+- `mkdir`-  [Creates a new directory]
 
 ### Contributing 
 
@@ -68,9 +68,27 @@ cd: function(arg1) {
 
 ---
 
+**IMPORTANT**
+
 - On addition of a new **command**, increase the size of `arr` array. This array acts like a counter to check if a **task/command** is completed or not.
+- Example: If I add the command - `echo`. I will add another 0 to the end of `arr`. Then I will make `arr[index] = 1` under `echo` command.
+```
+var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]; // Will add another 0 here. The place where you added is the index.
+...
+...
+echo: function(arg1) {
+            arr[index_where_you_added_0] = 1;	// Will make the value at that index to 1. 	
+            this.echo(arg1 + '\n');
+            this.echo('> The [[b;#ff3300;]echo] command prints back your arguments.');
+            this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
+            this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
+},
+
+```
 - If you face any problem or cannot understand anything, open up an **issue**.
 - You can also edit the **readme** and make it more user friendly to help out new contributers.
+
+> **NOTE: Kindly keep the diplay of the terminal intact while making an update. A single extra space can make the look of the emulator little odd. So keep that in mind while printing something using `echo` command.**
 
 > Note: Kindly have interpretable & good commit messages. Don't assume me to be some **Jedi** with powers to be able to make out every commit with a single word as message.
 *May the Force be with you.*
