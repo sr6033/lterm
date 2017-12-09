@@ -3,7 +3,7 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
@@ -30,8 +30,8 @@ jQuery(document).ready(function($)
             this.echo('> clear -----------' + task[arr[9]]);
             this.echo('> uname -----------' + task[arr[10]]);
             this.echo('> date  -----------' + task[arr[11]]);
-            this.echo('> ipconfig --------' + task[arr[11]]);
-            this.echo('> tty   -----------' + task[arr[12]]);
+            this.echo('> ipconfig --------' + task[arr[12]]);
+            this.echo('> tty   -----------' + task[arr[13]]);
             this.echo('\n');
         },
         echo: function(arg1) {
