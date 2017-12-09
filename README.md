@@ -29,6 +29,13 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - `cp`/`mv`
 - `mkdir`
 
+### List of commands that can be added
+
+- 'export'
+- 'history'
+- 'less'
+- 'more'
+
 ### Contributing 
 
 - Developers who want to contribute, [![fork](https://img.shields.io/badge/style-0-green.svg?style=social&label=Fork&link=https://github.com/sr6033/lterm/fork&link=https://github.com/sr6033/lterm/network)](https://github.com/sr6033/lterm/fork) this repo and edit the file **<a href="https://github.com/sr6033/lterm/blob/master/js/main.js">main.js</a>** to add your commands. 
