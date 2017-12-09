@@ -237,9 +237,9 @@ jQuery(document).ready(function($)
         tty: function() {
             arr[13] = 1;
             this.echo('/dev/lterm\n');
-            this.echo('> [[b;#ff3300;]tty]is used to print the file name of the terminal connected to standard input (keyboard)\n');
+            this.echo('> [[b;#ff3300;]tty] is used to print the file name of the terminal connected to standard input (keyboard)\n');
             this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
-
+            arr[13] = 1;
         },
         
         
