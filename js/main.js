@@ -27,11 +27,11 @@ jQuery(document).ready(function($)
             this.echo('> cp ------------- ' + task[arr[6]]);
             this.echo('> rm ------------- ' + task[arr[7]]);
             this.echo('> mkdir ---------- ' + task[arr[8]]);
-            this.echo('> clear -----------' + task[arr[9]]);
-            this.echo('> uname -----------' + task[arr[10]]);
-            this.echo('> date  -----------' + task[arr[11]]);
-            this.echo('> ipconfig --------' + task[arr[12]]);
-            this.echo('> tty   -----------' + task[arr[13]]);
+            this.echo('> clear ---------- ' + task[arr[9]]);
+            this.echo('> uname ---------- ' + task[arr[10]]);
+            this.echo('> date  ---------- ' + task[arr[11]]);
+            this.echo('> ipconfig ------- ' + task[arr[12]]);
+            this.echo('> tty ------------ ' + task[arr[13]]);
             this.echo('\n');
         },
         echo: function(arg1) {
