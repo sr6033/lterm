@@ -8,7 +8,17 @@ jQuery(document).ready(function($)
                                     // 1 -> completed 
                                     // added 1 more position
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
-
+    var pwdv = ["/home/lterm"];  //To print pwd
+    var f = 0;   //Required for subfolders
+    var fol = ["Documents", "Downloads", "Music", "Pictures", "Videos", "hello.txt"]; //Folders
+    var sfol = []; //Subfolders
+    sfol[0] = [];
+    sfol[1] = [];
+    sfol[2] = [];
+    sfol[3] = [];
+    sfol[4] = [];
+    sfol[5] = [];
+    
     $('body').terminal({
         help: function() {
 
@@ -43,7 +53,8 @@ jQuery(document).ready(function($)
         //rpc: 'some_file.php',
         pwd: function() {
             arr[1] = 1;
-            this.echo('/home/lterm\n');
+            if(f==0) { this.echo(pwdv[0] + "\n"); }
+            else { this.echo(pwdv[0] + '/' + pwdv[1] + "\n"); }
             this.echo('> Everything in Linux is a file. Every file is organized in a hierarchical directory tree.\n' +
                 '> The first directory in the filesystem is aptly named the root directory.\n' +
                 '> To see where you are, you can use the [[b;#ff3300;]pwd] command, this command means “print working directory”\n' +
@@ -52,43 +63,54 @@ jQuery(document).ready(function($)
         },
         ls: function() {  
             arr[2] = 1;  
-            this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n[[b;#44D544;]hello.txt]\n');
+            if(pwdv[1]==undefined) {
+                for (i=0; i<fol.length; i++) {
+                this.echo(fol[i] + "    ")
+                }
+            }
+            else {
+                for (i=0; i<sfol[f-1].length; i++) {
+                this.echo(sfol[f-1][i] + "    ")
+                }
+            }
             this.echo('> The ls command will list directories and files in the current directory by default,\n' +
             'however you can specify which path you want to list the directories of.');
             this.echo('> Now type [[b;#ff3300;]cd Documents] to continue.');
         },
         cd: function(arg1) {
 
-            // to add wrong directory error 
-
-            this.echo("> cd stands for Change Directory. You just changed your directory.");
-            this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd]."); 
-            this.echo("> To return back to the [[b;#44D544;]previous directory] you should type [[b;#ff3300;]cd ..].") //
-            this.echo("> To return back to the [[b;#44D544;]home] directory you should type [[b;#ff3300;]cd ~].")
-            this.push(function(cmd, term) {
-                if(cmd == 'pwd')
-                    this.echo('/home/lterm/' + arg1);
-                else
-                if(cmd == 'cd ..')
-                {
-                    
-                    this.echo('you will get something like -> /home/lterm/ since you were on /home/lterm/Documents'  );
-                    this.echo('Type [[b;#ff3300;]cd ~] to continue');
-                    this.echo('Type [[b;#ff3300;]exit] to exit [[b;#ff3300;]cd] command and then [[b;#ff3300;]cat hello.txt] to continue.');
-1
+            var e=0;
+            for (i=0; i<fol.length; i++) {
+                if(arg1 == fol[i]) { 
+                    e=1;
+                    f=i+1;
+                    break;
                 }
-                else if(cmd == 'cd ~')
-                {
-                    arr[3] = 1;
-                    this.echo('Type [[b;#ff3300;]cd ..] to continue');
-                    this.echo('Type [[b;#ff3300;]exit] to exit [[b;#ff3300;]cd] command and then [[b;#ff3300;]cat hello.txt] to continue.');
+                else if(arg1 == ".." || arg1 == "~"){
+                    e=2;
+                    break;
                 }
-                else
-                    this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
-                  }, {
-                    prompt: '[[b;#44D544;]lterm@localhost/' + arg1 + ':~$] ',
-                    }
-            );
+                else { e=0; }
+            }
+            if(e==1) {
+                pwdv.push(arg1);
+                this.echo("> cd stands for Change Directory. You just changed your directory.");
+                this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd]."); 
+                this.echo("> To return back to the [[b;#44D544;]previous directory] you should type [[b;#ff3300;]cd ..].");
+                this.echo("> To return back to the [[b;#44D544;]home] directory you should type [[b;#ff3300;]cd ~].");
+                this.set_prompt('lterm@localhost' + '/' + pwdv[1] + ':~$');
+            }
+            else if(e==2) {
+                if(f!=0) {
+                    pwdv.splice(1, 1);
+                    f = 0;
+                    this.set_prompt('lterm@localhost' + '/' + ':~$');
+                }
+                else {
+                    this.echo("This is the root directory!!\n")
+                }
+            }
+            else { this.echo('Directory doesn\'t exist'); } 
         },
 
 
@@ -168,16 +190,13 @@ jQuery(document).ready(function($)
         mkdir: function(arg1) {
             this.echo('> The mkdir command (Make Directory) creates a directory if it doesn’t already exist.');
             this.echo('> Type [[b;#ff3300;]ls] to see the new directory created.');
-            this.push(function(cmd, term) {
-                if(cmd == 'ls')
-                {
-                    arr[8] = 1;
-                    this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n' + arg1 + '[[b;#44D544;]hello.txt]\n');
-                    this.echo('Type [[b;#ff3300;]exit] to move back to [[b;#44D544;]home] and then type [[b;#ff3300;]Clear](Upper C) to continue');
-                }
-                else
-                    this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
-            });
+            if(pwdv[1]==undefined) {
+                fol.push(arg1);
+                sfol[fol.length-1]=[];
+            }
+            else {
+                sfol[f-1].push(arg1);
+            }
         },
         Clear: function() {
             this.echo('> The clear(lower C) command, clears your terminal screen');
