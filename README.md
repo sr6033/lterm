@@ -31,10 +31,10 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 ### List of commands that can be added
 
-- 'export'
-- 'history'
-- 'less'
-- 'more'
+- `export`
+- `history`
+- `less`
+- `more`
 
 ### Contributing 
 
