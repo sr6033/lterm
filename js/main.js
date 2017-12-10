@@ -188,6 +188,7 @@ jQuery(document).ready(function($)
             });
         },
         mkdir: function(arg1) {
+            arr[8] = 1;
             this.echo('> The mkdir command (Make Directory) creates a directory if it doesn’t already exist.');
             this.echo('> Type [[b;#ff3300;]ls] to see the new directory created.');
             if(pwdv[1]==undefined) {
