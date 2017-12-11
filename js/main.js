@@ -204,7 +204,8 @@ jQuery(document).ready(function($)
                     arr[7]=1;
                 } else { 
                     x="> \"[[b;#ff3300;]" + arg1 + "]\"" + " directory doesn\'t exist";
-                    this.echo(x);        
+                    this.echo(x); 
+                }
             }
         },
         mkdir: function(arg1) {
