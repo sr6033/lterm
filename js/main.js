@@ -114,7 +114,7 @@ jQuery(document).ready(function($)
                 if(f!=0) {
                     pwdv.splice(1, 1);
                     f = 0;
-                    this.set_prompt('lterm@localhost' + '/' + ':~$');
+                    this.set_prompt('[[b;#44D544;]lterm@localhost:~$]');
                     this.echo(">You have returned to the [[b;#44D544;]parent directory]\n");
                     this.echo(">Now type [[b;#ff3300;]help] to see the commands not completed and try them.");
                 }
