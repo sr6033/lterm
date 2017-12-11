@@ -186,17 +186,25 @@ jQuery(document).ready(function($)
         },
         rm: function(arg1) {
             this.echo('> The rm (remove) command is used to delete files and directories.');
-            this.echo('> Type [[b;#ff3300;]ls] to see the file deleted.');
-            this.push(function(cmd, term) {
-                if(cmd == 'ls')
-                {
-                    arr[7] = 1;
-                    this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n[[b;#44D544;]hello.txt]\n');
-                    this.echo('> Now type [[b;#ff3300;]exit] and then [[b;#ff3300;]mkdir directory_name] to continue');
+            this.echo('> Type [[b;#ff3300;]ls] to see the remaining files and directories in the current directory.');
+            if(pwdv[1]==undefined){
+                index=fol.indexOf(arg1);
+                if(index>0){
+                    fol.splice(index, 1);
+                    arr[7]=1;
+                } else { 
+                    x="> \"[[b;#ff3300;]" + arg1 + "]\"" + " directory doesn\'t exist";
+                    this.echo(x);
                 }
-                else
-                    this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
-            });
+            } else {
+                index=sfol[f-1].indexOf(arg1);
+                if(index>0){
+                    sfol[f-1].splice(index, 1);
+                    arr[7]=1;
+                } else { 
+                    x="> \"[[b;#ff3300;]" + arg1 + "]\"" + " directory doesn\'t exist";
+                    this.echo(x);        
+            }
         },
         mkdir: function(arg1) {
             arr[8]=1;
