@@ -7,11 +7,13 @@ jQuery(document).ready(function($)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
+    
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
-    var pwdv = ["/home/lterm"];  //To print pwd
-    var f = 0;   //Required for subfolders
-    var fol = ["Documents", "Downloads", "Music", "Pictures", "Videos", "hello.txt"]; //Folders
-    var sfol = []; //Subfolders
+    
+    var pwdv = ["/home/lterm"]  // To print pwd 
+    var f = 0;  // Required for sub folders
+    var fol = ["Documents", "Downloads", "Music", "Pictures", "Videos", "hello.txt"];   // Folders
+    var sfol = [];  // Sub folders
     sfol[0] = [];
     sfol[1] = [];
     sfol[2] = [];
@@ -19,6 +21,8 @@ jQuery(document).ready(function($)
     sfol[4] = [];
     sfol[5] = [];
     
+    //End
+
     $('body').terminal({
         help: function() {
 
@@ -55,6 +59,7 @@ jQuery(document).ready(function($)
             arr[1] = 1;
             if(f==0) { this.echo(pwdv[0] + "\n"); }
             else { this.echo(pwdv[0] + '/' + pwdv[1] + "\n"); }
+            
             this.echo('> Everything in Linux is a file. Every file is organized in a hierarchical directory tree.\n' +
                 '> The first directory in the filesystem is aptly named the root directory.\n' +
                 '> To see where you are, you can use the [[b;#ff3300;]pwd] command, this command means “print working directory”\n' +
@@ -62,7 +67,7 @@ jQuery(document).ready(function($)
             this.echo('> Now type [[b;#ff3300;]ls] to continue.');
         },
         ls: function() {  
-            arr[2] = 1;  
+            arr[2] = 1; 
             if(pwdv[1]==undefined) {
                 for (i=0; i<fol.length; i++) {
                 this.echo(fol[i] + "    ")
@@ -73,12 +78,15 @@ jQuery(document).ready(function($)
                 this.echo(sfol[f-1][i] + "    ")
                 }
             }
-            this.echo('> The ls command will list directories and files in the current directory by default,\n' +
+            
+            //this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n[[b;#44D544;]hello.txt]\n');
+            
+            this.echo('> The [[b;#ff3300;]ls] command will list directories and files in the current directory by default,\n' +
             'however you can specify which path you want to list the directories of.');
             this.echo('> Now type [[b;#ff3300;]cd Documents] to continue.');
         },
         cd: function(arg1) {
-
+            
             var e=0;
             for (i=0; i<fol.length; i++) {
                 if(arg1 == fol[i]) { 
@@ -93,8 +101,9 @@ jQuery(document).ready(function($)
                 else { e=0; }
             }
             if(e==1) {
+                arr[3] =1;
                 pwdv.push(arg1);
-                this.echo("> cd stands for Change Directory. You just changed your directory.");
+                this.echo("> [[b;#ff3300;]cd] stands for Change Directory. You just changed your directory.");
                 this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd]."); 
                 this.echo("> To return back to the [[b;#44D544;]previous directory] you should type [[b;#ff3300;]cd ..].");
                 this.echo("> To return back to the [[b;#44D544;]home] directory you should type [[b;#ff3300;]cd ~].");
@@ -105,14 +114,15 @@ jQuery(document).ready(function($)
                     pwdv.splice(1, 1);
                     f = 0;
                     this.set_prompt('lterm@localhost' + '/' + ':~$');
+                    this.echo(">You have returned to the [[b;#44D544;]parent directory]\n");
+                    this.echo(">Now type [[b;#ff3300;]help] to see the commands not completed and try them.");
                 }
                 else {
-                    this.echo("This is the root directory!!\n")
+                    this.echo("[[b;#ff3300;]This is the root directory!!]\n")
                 }
             }
-            else { this.echo('Directory doesn\'t exist'); } 
+            else { this.echo('[[b;#ff3300;]Directory doesn\'t exist]'); }   
         },
-
 
         cat: function(arg1) {
             if(arg1 !== 'hello.txt')
@@ -188,8 +198,8 @@ jQuery(document).ready(function($)
             });
         },
         mkdir: function(arg1) {
-            arr[8] = 1;
-            this.echo('> The mkdir command (Make Directory) creates a directory if it doesn’t already exist.');
+            arr[8]=1;
+            this.echo('> The [[b;#ff3300;]mkdir] command (Make Directory) creates a directory if it doesn’t already exist.');
             this.echo('> Type [[b;#ff3300;]ls] to see the new directory created.');
             if(pwdv[1]==undefined) {
                 fol.push(arg1);
