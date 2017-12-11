@@ -107,7 +107,8 @@ jQuery(document).ready(function($)
                 this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd]."); 
                 this.echo("> To return back to the [[b;#44D544;]previous directory] you should type [[b;#ff3300;]cd ..].");
                 this.echo("> To return back to the [[b;#44D544;]home] directory you should type [[b;#ff3300;]cd ~].");
-                this.set_prompt('lterm@localhost' + '/' + pwdv[1] + ':~$');
+                x='[[b;#44D544;]lterm@localhost/'+ pwdv[1] + ':~$]'
+                this.set_prompt(x);
             }
             else if(e==2) {
                 if(f!=0) {
