@@ -47,7 +47,7 @@ jQuery(document).ready(function($)
             this.echo('> date  ---------- ' + task[arr[11]]);
             this.echo('> ipconfig ------- ' + task[arr[12]]);
             this.echo('> tty ------------ ' + task[arr[13]]);
-            this.echo('> history ------------ ' + task[arr[14]]);
+            this.echo('> history -------- ' + task[arr[14]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -268,6 +268,7 @@ jQuery(document).ready(function($)
                 this.echo(a-b);
             }
         },
+        
         ipconfig: function(arg1) {
             arr[12] = 1;
             this.echo(arg1 + '\n');
@@ -283,9 +284,10 @@ jQuery(document).ready(function($)
             this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
             arr[13] = 1;
         },
-          history: function(){
+        
+        history: function() {
           var i;
-          this.echo('> [[b;#ff3300;]history] This command is ude to print the commands which are used in the previous iteration\n');
+          this.echo('> [[b;#ff3300;]history] This command is used to print the commands which are used in the previous iterations\n');
           this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
           for(i=0;i<=arr.length;i++)
           {
@@ -294,7 +296,7 @@ jQuery(document).ready(function($)
               this.echo(arr2[i]);
             }
           }
-          arr[14] =1 ;
+          arr[14] = 1 ;
         },
         
         
