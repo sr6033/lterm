@@ -3,11 +3,12 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
-    
+    var arr2 = ['echo','pwd','ls','cd','cat','touch','cp','rm','mkdir','clear','uname','date','ipconfig','tty','history'];
+    //all the newly added commands must be updated in both the above arrays
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
     
     var pwdv = ["/home/lterm"]  // To print pwd 
@@ -46,6 +47,7 @@ jQuery(document).ready(function($)
             this.echo('> date  ---------- ' + task[arr[11]]);
             this.echo('> ipconfig ------- ' + task[arr[12]]);
             this.echo('> tty ------------ ' + task[arr[13]]);
+            this.echo('> history -------- ' + task[arr[14]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -266,6 +268,7 @@ jQuery(document).ready(function($)
                 this.echo(a-b);
             }
         },
+        
         ipconfig: function(arg1) {
             arr[12] = 1;
             this.echo(arg1 + '\n');
@@ -280,6 +283,20 @@ jQuery(document).ready(function($)
             this.echo('> [[b;#ff3300;]tty] is used to print the file name of the terminal connected to standard input (keyboard)\n');
             this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
             arr[13] = 1;
+        },
+        
+        history: function() {
+          var i;
+          this.echo('> [[b;#ff3300;]history] This command is used to print the commands which are used in the previous iterations\n');
+          this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
+          for(i=0;i<=arr.length;i++)
+          {
+            if(arr[i] == 1)
+            {
+              this.echo(arr2[i]);
+            }
+          }
+          arr[14] = 1 ;
         },
         
         
