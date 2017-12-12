@@ -3,7 +3,7 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
@@ -46,6 +46,7 @@ jQuery(document).ready(function($)
             this.echo('> date  ---------- ' + task[arr[11]]);
             this.echo('> ipconfig ------- ' + task[arr[12]]);
             this.echo('> tty ------------ ' + task[arr[13]]);
+            this.echo('> nano ----------- ' + task[arr[14]]);
             this.echo('\n');
         },
         echo: function(arg1) {
@@ -280,6 +281,13 @@ jQuery(document).ready(function($)
             this.echo('> [[b;#ff3300;]tty] is used to print the file name of the terminal connected to standard input (keyboard)\n');
             this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
             arr[13] = 1;
+        },
+        
+        nano: function() {
+            arr[14] = 1;
+            this.echo('/dev/lterm\n');
+            this.echo('> [[b;#ff3300;]nano] is a command line text editor. It works just like a desktop text editor like TextEdit or Notepad, except that it is accessible from the the command line and only accepts keyboard input.\n');
+            this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');    
         },
         
         
