@@ -7,7 +7,7 @@ jQuery(document).ready(function($)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
-    var arr2 = ['echo','pwd','ls','cd','cat','touch','cp','rm','mkdir','clear','uname','date','ipconfig','tty','history'];
+    var arr2 = ['echo','pwd','ls','cd','cat','touch','cp','rm','mkdir','clear','uname','date','ifconfig','tty','history'];
     //all the newly added commands must be updated in both the above arrays
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
     
@@ -45,7 +45,7 @@ jQuery(document).ready(function($)
             this.echo('> clear ---------- ' + task[arr[9]]);
             this.echo('> uname ---------- ' + task[arr[10]]);
             this.echo('> date  ---------- ' + task[arr[11]]);
-            this.echo('> ipconfig ------- ' + task[arr[12]]);
+            this.echo('> ifconfig ------- ' + task[arr[12]]);
             this.echo('> tty ------------ ' + task[arr[13]]);
             this.echo('> history -------- ' + task[arr[14]]);
             this.echo('\n');
@@ -269,12 +269,42 @@ jQuery(document).ready(function($)
             }
         },
         
-        ipconfig: function(arg1) {
+        ifconfig: function() {
             arr[12] = 1;
-            this.echo(arg1 + '\n');
-            this.echo('> The [[b;#ff3300;]ipconfig] command prints back your arguments.');
-            this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
-            this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
+            this.echo('eth0    Link encap:Ethernet  HWaddr 09:00:12:90:e3:e5\n' +
+                        '\t\tinet addr:192.168.1.29 Bcast:192.168.1.255  Mask:255.255.255.0\n' +
+                        '\t\tinet6 addr: fe80::a00:27ff:fe70:e3f5/64 Scope:Link\n' +
+                        '\t\tUP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n' +
+                        '\t\tRX packets:54071 errors:1 dropped:0 overruns:0 frame:0\n' +
+                        '\t\tTX packets:48515 errors:0 dropped:0 overruns:0 carrier:0\n' +
+                        '\t\tcollisions:0 txqueuelen:1000\n' +
+                        '\t\tRX bytes:22009423 (20.9 MiB)  TX bytes:25690847 (24.5 MiB)\n' +
+                        '\t\tInterrupt:10 Base address:0xd020\n\n' +
+
+                'lo      Link encap:Local Loopback  \n' +
+                        '\t\tinet addr:127.0.0.1  Mask:255.0.0.0\n' +
+                        '\t\tinet6 addr: ::1/128 Scope:Host\n' +
+                        '\t\tUP LOOPBACK RUNNING  MTU:16436  Metric:1\n' +
+                        '\t\tRX packets:83 errors:0 dropped:0 overruns:0 frame:0\n' +
+                        '\t\tTX packets:83 errors:0 dropped:0 overruns:0 carrier:0\n' +
+                        '\t\tcollisions:0 txqueuelen:0 \n' +
+                        '\t\tRX bytes:7766 (7.5 KiB)  TX bytes:7766 (7.5 KiB)\n\n' +
+
+                'wlan0   Link encap:Ethernet  HWaddr 58:a2:c2:93:27:36 \n' +
+                        '\t\tinet addr:192.168.1.64  Bcast:192.168.2.255  Mask:255.255.255.0\n' +
+                        '\t\tinet6 addr: fe80::6aa3:c4ff:fe93:4746/64 Scope:Link\n' +
+                        '\t\tUP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n' +
+                        '\t\tRX packets:436968 errors:0 dropped:0 overruns:0 frame:0\n' +
+                        '\t\tTX packets:364103 errors:0 dropped:0 overruns:0 carrier:0\n' +
+                        '\t\tcollisions:0 txqueuelen:1000\n' +
+                        '\t\tRX bytes:115886055 (110.5 MiB)  TX bytes:83286188 (79.4 MiB)\n')
+            this.echo('> Woah! What the hell happened there?!')
+            this.echo('> Relax. It\'s perfectly fine if your don\'t understand any of this right now. This is just a demonstration.')
+            this.echo('> The [[b;#ff3300;]ifconfig] command displays information about currently active network interfaces.');
+            this.echo('> So, basically, it gives you a lot of information about your network.')
+            this.echo('> e.g. your local ip address for wireless (here, wlan0) or ethernet (here, eth0) can be found in their respective "inet addr:" fields.')
+            this.echo('> It can also be used to configure the iterfaces but we will not discuss it here.')
+            this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.');
         },
         
         tty: function() {
