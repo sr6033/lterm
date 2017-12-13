@@ -291,7 +291,7 @@ jQuery(document).ready(function($)
           this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
           for(i=0;i<=arr.length;i++)
           {
-            if(arr[i] == 1)
+             if(arr[i] == 1 && arr2[i]!= 'history' )
             {
               this.echo(arr2[i]);
             }
