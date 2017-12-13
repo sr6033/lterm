@@ -22,7 +22,7 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - `pwd`------[Shows you the present working directory]
 - `ls`-------[Lists all the files]
 - `cd`-------[To change directory - change the current working directory to a specific directory]
-- `cd..`-----[Moves you up one directory(parent)]
+- `cd ..`-----[Moves you up one directory(parent)]
 - `cat`------[Concatenate and print the content of files]
 - `clear`----[Clears the terminal screen]
 - `touch`----[Changes file timestamps or creates a new file]
@@ -30,7 +30,7 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - `rm`-------[Delets a file/directory]
 - `uname`----[Shows the name of the Linux/Unix system you are using]
 - `data`-----[Shows the local standard date & time]
-- `ipconfig`-[]
+- `ifconfig`-[Shows information about active network interfaces.]
 - `mkdir`----[Creates a new directory]
 - `tty`------[Prints the file name of the terminal connected to standard input]
 
