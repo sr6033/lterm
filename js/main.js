@@ -11,18 +11,20 @@ jQuery(document).ready(function($)
     //all the newly added commands must be updated in both the above arrays
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
     
-    var pwdv = ["/home/lterm"]  // To print pwd 
-    var f = 0;  // Required for sub folders
-    var fol = ["Documents", "Downloads", "Music", "Pictures", "Videos", "hello.txt"];   // Folders
-    var sfol = [];  // Sub folders
-    sfol[0] = [];
-    sfol[1] = [];
-    sfol[2] = [];
-    sfol[3] = [];
-    sfol[4] = [];
-    sfol[5] = [];
-    
-    //End
+    var pwdv = ["lterm"]  // To print pwd 
+    var s = [];   //Array for directories
+    var f = [];   //Array for files
+    var count = 6;    //Required to continue making sub directories
+    var o = { "lterm": "0", "Documents": "1", "Downloads": "2", "Music": "3", "Pictures": "4", "Videos":"5" };  //Object to assign array of sub folders to a folder
+    var of = { "hello.txt": "Hey there newbie!\nHaving fun? I hope so." };  //Object to assign text to a file
+    f[0] = ["hello.txt"];
+    s[0] = ["Documents", "Downloads", "Music", "Pictures", "Videos"];   //Array listing sub directories
+    s[1] = []; f[1] = [];
+    s[2] = []; f[2] = [];
+    s[3] = []; f[3] = [];
+    s[4] = []; f[4] = [];
+    s[5] = []; f[5] = [];
+    var index;  //Used in rm command to remove element from an array by using command splice
 
     $('body').terminal({
         help: function() {
@@ -60,167 +62,178 @@ jQuery(document).ready(function($)
         //rpc: 'some_file.php',
         pwd: function() {
             arr[1] = 1;
-            if(f==0) { this.echo(pwdv[0] + "\n"); }
-            else { this.echo(pwdv[0] + '/' + pwdv[1] + "\n"); }
-            
+            var pwdvNew = pwdv.join(',').replace(/,/g, '/').split();
+            this.echo("/home/" + pwdvNew);
             this.echo('> Everything in Linux is a file. Every file is organized in a hierarchical directory tree.\n' +
                 '> The first directory in the filesystem is aptly named the root directory.\n' +
                 '> To see where you are, you can use the [[b;#ff3300;]pwd] command, this command means “print working directory”\n' +
                 'and it just shows you which directory you are in, note the path stems from the root directory.');
-            this.echo('> Now type [[b;#ff3300;]ls] to continue.');
+            this.echo('> Now type [[b;#ff3300;]ls] to see the directories and files present in the current directory');
         },
         ls: function() {  
             arr[2] = 1; 
-            if(pwdv[1]==undefined) {
-                for (i=0; i<fol.length; i++) {
-                this.echo(fol[i] + "    ")
-                }
-            }
-            else {
-                for (i=0; i<sfol[f-1].length; i++) {
-                this.echo(sfol[f-1][i] + "    ")
-                }
-            }
-            
-            //this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n[[b;#44D544;]hello.txt]\n');
-            
+            x = o[pwdv[pwdv.length - 1]];
+            y = "[[b;#44D544;]" + s[x] + "]," + f[x];
+            var z = y.replace(/,/g, '        ').split();
+            this.echo(z);
+            x = 0;
             this.echo('> The [[b;#ff3300;]ls] command will list directories and files in the current directory by default,\n' +
             'however you can specify which path you want to list the directories of.');
-            this.echo('> Now type [[b;#ff3300;]cd Documents] to continue.');
+            this.echo('> Now type [[b;#ff3300;]cd Documents] to enter a sub directory.');
         },
         cd: function(arg1) {
-            
-            var e=0;
-            for (i=0; i<fol.length; i++) {
-                if(arg1 == fol[i]) { 
-                    e=1;
-                    f=i+1;
+            x = o[pwdv[pwdv.length - 1]];
+            var e = 0;
+            for (i = 0; i <= s[x].length; i++) {
+                if(arg1 == s[x][i]) { 
+                    e = 1;
                     break;
                 }
-                else if(arg1 == ".." || arg1 == "~"){
-                    e=2;
+                else if(arg1 == "..") {
+                    e = 2;
+                    break;
+                }else if(arg1 == "~") {
+                    e = 3;
                     break;
                 }
-                else { e=0; }
+                else { e = 0; }
             }
             if(e==1) {
-                arr[3] =1;
+                arr[3] = 1, x = 0;
                 pwdv.push(arg1);
                 this.echo("> [[b;#ff3300;]cd] stands for Change Directory. You just changed your directory.");
                 this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd]."); 
                 this.echo("> To return back to the [[b;#44D544;]previous directory] you should type [[b;#ff3300;]cd ..].");
                 this.echo("> To return back to the [[b;#44D544;]home] directory you should type [[b;#ff3300;]cd ~].");
-                x='[[b;#44D544;]lterm@localhost/'+ pwdv[1] + ':~$]'
-                this.set_prompt(x);
+                pwdv.splice(0, 1);
+                var pwdvNew = pwdv.join(',').replace(/,/g, '/').split();
+                y = '[[b;#44D544;]lterm@localhost/'+ pwdvNew + ':~$]';
+                this.set_prompt(y);
+                pwdv.unshift("lterm");
             }
             else if(e==2) {
-                if(f!=0) {
-                    pwdv.splice(1, 1);
-                    f = 0;
-                    this.set_prompt('[[b;#44D544;]lterm@localhost:~$]');
+                if(x!=0) {
+                    x = 0;
+                    pwdv.splice(pwdv.length-1, 1);
+                    pwdv.splice(0, 1);
+                    var pwdvNew = pwdv.join(',').replace(/,/g, '/').split();
+                    y = '[[b;#44D544;]lterm@localhost/'+ pwdvNew + ':~$]';
+                    this.set_prompt(y);
+                    pwdv.unshift("lterm");
                     this.echo(">You have returned to the [[b;#44D544;]parent directory]\n");
                     this.echo(">Now type [[b;#ff3300;]help] to see the commands not completed and try them.");
                 }
                 else {
-                    this.echo("[[b;#ff3300;]This is the root directory!!]\n")
+                    x = 0;
+                    this.echo("[[b;#ff3300;]Error:] This is the root directory!!\n");
+                }
+            } else if(e==3) {
+                if(x!=0) {
+                    x = 0;
+                    pwdv.splice(1);
+                    y = '[[b;#44D544;]lterm@localhost/'+ pwdv + ':~$] '
+                    this.set_prompt(y);
+                    this.echo(">You have returned to the [[b;#44D544;]home directory]");
+                    this.echo(">Now type [[b;#ff3300;]help] to see the commands not completed and try them.");
+                }
+                else {
+                    x = 0;
+                    this.echo("[[b;#ff3300;]Error:] This is the root directory!!\n");
                 }
             }
-            else { this.echo('[[b;#ff3300;]Directory doesn\'t exist]'); }   
+            else { 
+                x=0;
+                this.echo('[[b;#ff3300;]Error:] Directory doesn\'t exist!!'); }   
         },
 
         cat: function(arg1) {
-            if(arg1 !== 'hello.txt')
-            {
-                this.echo('[[b;#ff3300;]Wrong commands.] Type the [[b;#ff3300;]cat hello.txt] to continue.\n');
-            }
-            else
-            {    
+            y = of[arg1];
+            if(y==undefined){ 
+                this.echo(arg1 + " doesn't exist.")}
+            else { 
                 arr[4] = 1;
-                this.echo('[[b;#44D544;]Hey there newbie!\nHaving fun? I hope so.\n\n');
-                this.echo('> The [[b;#ff3300;]cat] command displays the contents of the file.');
-                this.echo('> Now type [[b;#ff3300;]touch filename.xyz] to continue.')
-            }
+                this.echo(y); }
+            y = "";
+            this.echo("> The [[b;#ff3300;]cat] command views the text inside a file on the terminal.");
         },
         touch: function(arg1) {
             this.echo('> [[b;#ff3300;]touch] allows you to the create new empty files. Type [[b;#ff3300;]ls] to see the new file created.');
-            this.push(function(cmd, term) {
-                if(cmd == 'ls')
-                {
-                    arr[5] = 1;
-                    this.echo('Documents\nDownloads\nMusic\nPictures\nVideos\n[[b;#44D544;]hello.txt]\n' + '[[b;#44D544;]' + arg1 + ']');
-                    this.echo('> Now type [[b;#ff3300;]exit] and then [[b;#ff3300;]cp hello.txt Documents] to continue.');
-                }
-                else
-                    this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
-                }, {
-                    prompt: '[[b;#44D544;]lterm@localhost:~$] ',
-                }
-            );
+            arr[5] = 1;
+            x = o[pwdv[pwdv.length - 1]];
+            f[x].push(arg1);
+            of[arg1] = "";
         },
         cp: function(arg1, arg2) {
-            if(arg1 !== 'hello.txt')
-            {
-                this.echo('[[b;#ff3300;]Wrong commands. Type the exact commands requested.]\n');
-            }
-            else
-            if(arg2 !== 'Documents')
-            {
-                this.echo('[[b;#ff3300;]Wrong commands. Type the exact commands requested.]\n');
-            }
-            else
-            {
-                this.echo('> The [[b;#ff3300;]cp] command copies your file to the given location.');
-                this.echo('> Now Type [[b;#ff3300;]ls] to see your file copied.')
-                this.push(function(cmd, term) {
-                    if(cmd == 'ls')
-                    {
-                        arr[6] = 1;
-                        this.echo('[[b;#44D544;]' + arg1 + ']\n');
-                        this.echo('> The [[b;#ff3300;]mv] command in the same way, moves/cut your file to the given location.');
-                        this.echo('> Type [[b;#ff3300;]exit] and then [[b;#ff3300;]rm hello.txt] to continue.');
-                    }
-                    else
-                        this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
-                    }, {
-                        prompt: '[[b;#44D544;]lterm@localhost/Documents:~$] ',
-                    }
-                );
-            }
+            this.echo('> The [[b;#ff3300;]cp] command copies your file to the given location.');
+            this.echo('> Now Type [[b;#ff3300;]ls] to see your file copied.');
+            x = o[pwdv[pwdv.length - 1]];
+            for(i = 0; i <= s[x].length; i++) {
+                if(arg1 == s[x][i]){
+                    e = 1;
+                    break;
+                } else if(arg1 == f[x][i]){
+                    e = 2;
+                    break;
+                } else { e = 0; }
+            }   //loop ends
+            if(e==1) {
+                arr[6] = 1;
+                o[arg2] = count;
+                y = o[arg1];
+                s[x].push(arg2);
+                s[count] = s[y];
+                count++;    
+                y = 0;
+            } else if(e==2) {
+                arr[6] = 1;
+                f[x].push(arg2);
+                of[arg2] = of[arg1];
+            } else if(e==0) {
+                y = "> \"[[b;#ff3300;]" + arg1 + "]\"" + " directory or file doesn\'t exist.";
+                this.echo(y);
+                x = 0;
+            }        
         },
         rm: function(arg1) {
             this.echo('> The rm (remove) command is used to delete files and directories.');
             this.echo('> Type [[b;#ff3300;]ls] to see the remaining files and directories in the current directory.');
-            if(pwdv[1]==undefined){
-                index=fol.indexOf(arg1);
-                if(index>0){
-                    fol.splice(index, 1);
-                    arr[7]=1;
-                } else { 
-                    x="> \"[[b;#ff3300;]" + arg1 + "]\"" + " directory doesn\'t exist";
-                    this.echo(x);
-                }
-            } else {
-                index=sfol[f-1].indexOf(arg1);
-                if(index>0){
-                    sfol[f-1].splice(index, 1);
-                    arr[7]=1;
-                } else { 
-                    x="> \"[[b;#ff3300;]" + arg1 + "]\"" + " directory doesn\'t exist";
-                    this.echo(x); 
-                }
+            x = o[pwdv[pwdv.length - 1]];
+            for(i = 0; i <= s[x].length; i++) {
+                if(arg1 == s[x][i]){
+                    e = 1;
+                    break;
+                } else if(arg1 == f[x][i]){
+                    e = 2;
+                    break;
+                } else { e = 0; }
+            }
+            if(e==1) {
+                arr[7] = 1;
+                index = s[x].indexOf(arg1);
+                s[x].splice(index, 1);
+                x = 0;
+            } else if(e==2){
+                arr[7] = 1;
+                index = f[x].indexOf(arg1);
+                f[x].splice(index, 1);
+                x = 0;
+            } else if(e==0) {
+                y = "> \"[[b;#ff3300;]" + arg1 + "]\"" + " directory or file doesn\'t exist.";
+                this.echo(y);
+                x = 0;
             }
         },
         mkdir: function(arg1) {
-            arr[8]=1;
+            arr[8] = 1;
             this.echo('> The [[b;#ff3300;]mkdir] command (Make Directory) creates a directory if it doesn’t already exist.');
             this.echo('> Type [[b;#ff3300;]ls] to see the new directory created.');
-            if(pwdv[1]==undefined) {
-                fol.push(arg1);
-                sfol[fol.length-1]=[];
-            }
-            else {
-                sfol[f-1].push(arg1);
-            }
+            x = o[pwdv[pwdv.length - 1]];
+            o[arg1] = count;
+            s[x].push(arg1);
+            s[count] = [];
+            f[count] = [];
+            x = 0;
+            count++;
         },
         Clear: function() {
             this.echo('> The clear(lower C) command, clears your terminal screen');
