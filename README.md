@@ -83,9 +83,12 @@ cd: function(arg1) {
 **IMPORTANT**
 
 - On addition of a new **command**, increase the size of `arr` array. This array acts like a counter to check if a **task/command** is completed or not.
+- You need to add the new **command** into the second array `arr2` . This array stores all the commands and helps in fetching the **completed commands** when the **history** command is executed.
+- Please make sure that you **do not alter the positions of commands** in `arr2`, You need to add the new command towards the last.
 - Example: If I add the command - `echo`. I will add another 0 to the end of `arr`. Then I will make `arr[index] = 1` under `echo` command.
 ```
 var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]; // Will add another 0 here. The place where you added is the index.
+var arr2 = ['list of all other commands']; // Will add the 'echo' command here
 ...
 ...
 echo: function(arg1) {
