@@ -33,11 +33,11 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - `ifconfig`-[Shows information about active network interfaces.]
 - `mkdir`----[Creates a new directory]
 - `tty`------[Prints the file name of the terminal connected to standard input]
+- `history`--[Shows all the commands which are used in the previous iterations]
 
 ### List of commands that can be added
 
 - `export`
-- `history`
 - `less`
 - `more`
 
