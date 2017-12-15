@@ -235,17 +235,11 @@ jQuery(document).ready(function($)
             x = 0;
             count++;
         },
-        Clear: function() {
+        clear: function() {
             this.echo('> The clear(lower C) command, clears your terminal screen');
             this.echo('> Type [[b;#ff3300;]clear] to clean your terminal');
-            this.push(function(cmd,term) {
-                if(cmd == 'clear' || cmd == 'Clear') //Changed here
-                {
-                    arr[9]=1;          
-                }
-                else 
-                    this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
-            });
+            arr[9]=1;
+            this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
         },
         uname: function() {
                 arr[10] = 1;
