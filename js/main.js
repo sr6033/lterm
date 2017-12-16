@@ -39,17 +39,19 @@ jQuery(document).ready(function($)
             this.echo('> pwd ------------ ' + task[arr[1]]);
             this.echo('> ls ------------- ' + task[arr[2]]);
             this.echo('> cd ------------- ' + task[arr[3]]);
-            this.echo('> cat ------------ ' + task[arr[4]]);
-            this.echo('> touch ---------- ' + task[arr[5]]);
-            this.echo('> cp ------------- ' + task[arr[6]]);
-            this.echo('> rm ------------- ' + task[arr[7]]);
-            this.echo('> mkdir ---------- ' + task[arr[8]]);
-            this.echo('> clear ---------- ' + task[arr[9]]);
-            this.echo('> uname ---------- ' + task[arr[10]]);
-            this.echo('> date  ---------- ' + task[arr[11]]);
-            this.echo('> ifconfig ------- ' + task[arr[12]]);
-            this.echo('> tty ------------ ' + task[arr[13]]);
-            this.echo('> history -------- ' + task[arr[14]]);
+            this.echo('> cd .. ---------- ' + task[arr[4]]);
+            this.echo('> cd ~ ----------- ' + task[arr[5]]);
+            this.echo('> cat ------------ ' + task[arr[6]]);
+            this.echo('> touch ---------- ' + task[arr[7]]);
+            this.echo('> cp ------------- ' + task[arr[8]]);
+            this.echo('> rm ------------- ' + task[arr[9]]);
+            this.echo('> mkdir ---------- ' + task[arr[10]]);
+            this.echo('> clear ---------- ' + task[arr[11]]);
+            this.echo('> uname ---------- ' + task[arr[12]]);
+            this.echo('> date  ---------- ' + task[arr[13]]);
+            this.echo('> ifconfig ------- ' + task[arr[14]]);
+            this.echo('> tty ------------ ' + task[arr[15]]);
+            this.echo('> history -------- ' + task[arr[16]]);
             this.echo('\n');
         },
         echo: function(arg1) {
