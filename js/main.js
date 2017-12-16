@@ -3,11 +3,11 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    var arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
-    var arr2 = ['echo','pwd','ls','cd','cat','touch','cp','rm','mkdir','clear','uname','date','ipconfig','tty','history'];
+    var arr2 = ['echo','pwd','ls','cd','cd ..','cd ~','cat','touch','cp','rm','mkdir','clear','uname','date','ipconfig','tty','history'];
     //all the newly added commands must be updated in both the above arrays
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
     
@@ -99,7 +99,7 @@ jQuery(document).ready(function($)
                 else { e = 0; }
             }
             if(e==1) {
-                arr[3] = 1, x = 0;
+                arr[3] = 1; x = 0;
                 pwdv.push(arg1);
                 this.echo("> [[b;#ff3300;]cd] stands for Change Directory. You just changed your directory.");
                 this.echo("> You can check your present directory by typing [[b;#ff3300;]pwd]."); 
@@ -113,7 +113,7 @@ jQuery(document).ready(function($)
             }
             else if(e==2) {
                 if(x!=0) {
-                    x = 0;
+                    arr[4] = 1; x = 0;
                     pwdv.splice(pwdv.length-1, 1);
                     pwdv.splice(0, 1);
                     var pwdvNew = pwdv.join(',').replace(/,/g, '/').split();
@@ -129,7 +129,7 @@ jQuery(document).ready(function($)
                 }
             } else if(e==3) {
                 if(x!=0) {
-                    x = 0;
+                    arr[5] = 1; x = 0;
                     pwdv.splice(1);
                     y = '[[b;#44D544;]lterm@localhost/'+ pwdv + ':~$] '
                     this.set_prompt(y);
@@ -151,14 +151,14 @@ jQuery(document).ready(function($)
             if(y==undefined){ 
                 this.echo(arg1 + " doesn't exist.")}
             else { 
-                arr[4] = 1;
+                arr[6] = 1;
                 this.echo(y); }
             y = "";
             this.echo("> The [[b;#ff3300;]cat] command views the text inside a file on the terminal.");
         },
         touch: function(arg1) {
             this.echo('> [[b;#ff3300;]touch] allows you to the create new empty files. Type [[b;#ff3300;]ls] to see the new file created.');
-            arr[5] = 1;
+            arr[7] = 1;
             x = o[pwdv[pwdv.length - 1]];
             f[x].push(arg1);
             of[arg1] = "";
@@ -177,7 +177,7 @@ jQuery(document).ready(function($)
                 } else { e = 0; }
             }   //loop ends
             if(e==1) {
-                arr[6] = 1;
+                arr[8] = 1;
                 o[arg2] = count;
                 y = o[arg1];
                 s[x].push(arg2);
@@ -185,7 +185,7 @@ jQuery(document).ready(function($)
                 count++;    
                 y = 0;
             } else if(e==2) {
-                arr[6] = 1;
+                arr[8] = 1;
                 f[x].push(arg2);
                 of[arg2] = of[arg1];
             } else if(e==0) {
@@ -208,12 +208,12 @@ jQuery(document).ready(function($)
                 } else { e = 0; }
             }
             if(e==1) {
-                arr[7] = 1;
+                arr[9] = 1;
                 index = s[x].indexOf(arg1);
                 s[x].splice(index, 1);
                 x = 0;
             } else if(e==2){
-                arr[7] = 1;
+                arr[9] = 1;
                 index = f[x].indexOf(arg1);
                 f[x].splice(index, 1);
                 x = 0;
@@ -224,7 +224,7 @@ jQuery(document).ready(function($)
             }
         },
         mkdir: function(arg1) {
-            arr[8] = 1;
+            arr[10] = 1;
             this.echo('> The [[b;#ff3300;]mkdir] command (Make Directory) creates a directory if it doesn’t already exist.');
             this.echo('> Type [[b;#ff3300;]ls] to see the new directory created.');
             x = o[pwdv[pwdv.length - 1]];
@@ -241,14 +241,14 @@ jQuery(document).ready(function($)
             this.push(function(cmd,term) {
                 if(cmd == 'clear' || cmd == 'Clear') //Changed here
                 {
-                    arr[9]=1;          
+                    arr[11]=1;          
                 }
                 else 
                     this.echo('[[b;#ff3300;]Wrong step commands. Type the exact commands requested.]\n');
             });
         },
         uname: function() {
-                arr[10] = 1;
+                arr[12] = 1;
                 this.echo('lterm\n');
                 this.echo('> [[b;#ff3300;]uname] find out the name of the unix/Linux system we are using.\n'+
                     '\n> Print system information \n'+'\n> With no '+
@@ -257,7 +257,7 @@ jQuery(document).ready(function($)
         },
         date:function()
         {
-            arr[11]=1;
+            arr[13]=1;
             this.echo('\n> [[b;#ff3300;]date] displays the current date and time\n');
 
 
@@ -283,7 +283,7 @@ jQuery(document).ready(function($)
         },
         
         ipconfig: function(arg1) {
-            arr[12] = 1;
+            arr[14] = 1;
             this.echo(arg1 + '\n');
             this.echo('> The [[b;#ff3300;]ipconfig] command prints back your arguments.');
             this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
@@ -291,11 +291,10 @@ jQuery(document).ready(function($)
         },
         
         tty: function() {
-            arr[13] = 1;
+            arr[15] = 1;
             this.echo('/dev/lterm\n');
             this.echo('> [[b;#ff3300;]tty] is used to print the file name of the terminal connected to standard input (keyboard)\n');
             this.echo('> Type [[b;#ff3300;]help] and check that this task is completed.\n');
-            arr[13] = 1;
         },
         
         history: function() {
@@ -309,7 +308,7 @@ jQuery(document).ready(function($)
               this.echo(arr2[i]);
             }
           }
-          arr[14] = 1 ;
+          arr[16] = 1 ;
         },
         
         
