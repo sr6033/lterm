@@ -43,7 +43,15 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 
 ### Contributing 
 
-- Developers who want to contribute, [![fork](https://img.shields.io/badge/style-0-green.svg?style=social&label=Fork&link=https://github.com/sr6033/lterm/fork&link=https://github.com/sr6033/lterm/network)](https://github.com/sr6033/lterm/fork) this repo and edit the file **<a href="https://github.com/sr6033/lterm/blob/master/js/main.js">main.js</a>** to add your commands. 
+
+1. Fork it (<https://github.com/sr6033/lterm/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+#### To add your new commands
+- edit the file **<a href="https://github.com/sr6033/lterm/blob/master/js/main.js">main.js</a>** to add your commands. 
 - You don't have to worry about any other files or programs.
 
 ---
