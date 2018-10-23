@@ -1,39 +1,41 @@
-		          __       ________   _______   _____   _     _    __
-                    |  |     |__    __| |   ____| |  _  | | \   / |   \ \           
-                    |  |        |  |    |  |__    | |_| | |  \_/  |    \ \          
-                    |  |      o |  |    |     |   |   __| |   _   |     \ \         
-                    |  |      o |  |    |   __|   |   \   |  | |  |     / /         
-                    |  |____  o |  |    |  |____  |    \  |  | |  |    / / ____   
-                    |_______| o |__|    |_______| |__|\_\ |__| |__|   /_/ |____|  
+				  __       ________   _______   _____   _     _    __
+			    |  |     |__    __| |   ____| |  _  | | \   / |   \ \           
+			    |  |        |  |    |  |__    | |_| | |  \_/  |    \ \          
+			    |  |      o |  |    |     |   |   __| |   _   |     \ \         
+			    |  |      o |  |    |   __|   |   \   |  | |  |     / /         
+			    |  |____  o |  |    |  |____  |    \  |  | |  |    / / ____   
+			    |_______| o |__|    |_______| |__|\_\ |__| |__|   /_/ |____|  
 
 # lterm: Online bash terminal(emulator) tutorial
 
-Check out the site live at  -->  [![lterm](https://img.shields.io/badge/webiste-live-brightgreen.svg?style=flat-square)](https://sr6033.github.io/lterm/)	[![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/lterm/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+Check out the site live at:  [![lterm](https://img.shields.io/badge/webiste-live-brightgreen.svg?style=flat-square)](https://sr6033.github.io/lterm/)	[![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/lterm/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-**lterm** is an online **Terminal Emulator**. It is a step by step tutorial that will teach you the **bash** commands by making you execute them. 
+**lterm** is an online **Terminal Emulator**. It is a step by step tutorial that will teach you the **bash** commands by making you execute them.
 
 *Nothing is better than learning by doing.*
 
-It is fully online and doesn't require any extra shitty access. Being an emulator, it only virtualizes a terminal environment and so the commands executed doesn't effect either the server or your local machine. 
+It is fully online and doesn't require any extra shitty access. Being an emulator, it only virtualizes a terminal environment and so the commands executed doesn't effect either the server or your local machine.
 
 ### List of commands available presently
 
-- `echo`-----[To display a string]
-- `pwd`------[Shows you the present working directory]
-- `ls`-------[Lists all the files]
-- `cd`-------[To change directory - change the current working directory to a specific directory]
-- `cd ..`-----[Moves you up one directory(parent)]
-- `cat`------[Concatenate and print the content of files]
-- `clear`----[Clears the terminal screen]
-- `touch`----[Changes file timestamps or creates a new file]
-- `cp`/`mv`--[To copy/move files]
-- `rm`-------[Delets a file/directory]
-- `uname`----[Shows the name of the Linux/Unix system you are using]
-- `data`-----[Shows the local standard date & time]
-- `ifconfig`-[Shows information about active network interfaces.]
-- `mkdir`----[Creates a new directory]
-- `tty`------[Prints the file name of the terminal connected to standard input]
-- `history`--[Shows all the commands which are used in the previous iterations]
+Command| Does...
+:-----:|:-----:
+`echo`|To display a string
+`pwd`|Shows you the present working directory
+`ls`|Lists all the files
+`cd`|To change directory - change the current working directory to a specific directory
+`cd ..`|Moves you up one directory(parent)
+`cat`|Concatenate and print the content of files
+`clear`|Clears the terminal screen
+`touch`|Changes file timestamps or creates a new file
+`cp`/`mv`|To copy/move files
+`rm`|Delets a file/directory
+`uname`|Shows the name of the Linux/Unix system you are using
+`data`|Shows the local standard date & time
+`ifconfig`|Shows information about active network interfaces.
+`mkdir`|Creates a new directory
+`tty`|Prints the file name of the terminal connected to standard input
+`history`|Shows all the commands which are used in the previous iterations
 
 ### List of commands that can be added
 
@@ -41,7 +43,7 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 - `less`
 - `more`
 
-### Contributing 
+### Contributing
 
 
 1. Fork it (<https://github.com/sr6033/lterm/fork>)
@@ -51,7 +53,7 @@ It is fully online and doesn't require any extra shitty access. Being an emulato
 5. Create a new Pull Request
 
 #### To add your new commands
-- edit the file **<a href="https://github.com/sr6033/lterm/blob/master/js/main.js">main.js</a>** to add your commands. 
+- edit the file **<a href="https://github.com/sr6033/lterm/blob/master/js/main.js">main.js</a>** to add your commands.
 - You don't have to worry about any other files or programs.
 
 ---
@@ -109,9 +111,9 @@ echo: function(arg1) {
 
 ```
 - If you face any problem or cannot understand anything, open up an **issue**.
-- You can also edit the **readme** and make it more user friendly to help out new contributers.
+- You can also edit the **readme** and make it more user friendly to help out new contributors.
 
-> **NOTE: Kindly keep the diplay of the terminal intact while making an update. A single extra space can make the look of the emulator little odd. So keep that in mind while printing something using `echo` command.**
+> **NOTE: Kindly keep the display of the terminal intact while making an update. A single extra space can make the look of the emulator little odd. So keep that in mind while printing something using `echo` command.**
 
 > Note: Kindly have interpretable & good commit messages. Don't assume me to be some **Jedi** with powers to be able to make out every commit with a single word as message.
 *May the Force be with you.*
