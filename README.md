@@ -31,7 +31,7 @@ Command| Does...
 `cp`/`mv`|To copy/move files
 `rm`|Delets a file/directory
 `uname`|Shows the name of the Linux/Unix system you are using
-`data`|Shows the local standard date & time
+`date`|Shows the local standard date & time
 `ifconfig`|Shows information about active network interfaces.
 `mkdir`|Creates a new directory
 `tty`|Prints the file name of the terminal connected to standard input
