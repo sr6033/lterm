@@ -5031,9 +5031,7 @@
         if (settings.height) {
             self.height(settings.height);
         }
-        var agent = navigator.userAgent.toLowerCase();
-        if (!agent.match(/(webkit)[ \/]([\w.]+)/) &&
-            self[0].tagName.toLowerCase() == 'body') {
+        if (self[0].tagName.toLowerCase() == 'body') {
             scroll_object = $('html');
         } else {
             scroll_object = self;
