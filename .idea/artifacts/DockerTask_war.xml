@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="DockerTask:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>DockerTask</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="DockerTask-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="DockerTask:war exploded" />
+    </root>
+  </artifact>
+</component>
