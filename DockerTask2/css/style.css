@@ -1,0 +1,217 @@
+html{
+	font-family: Orbitron;
+}
+
+h1 {
+	font-size: 70px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	color: #ecf0f1;
+}
+
+.container{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.text{
+	position: absolute;
+	color: #ecf0f1;
+	font-size: 20px;
+	right: 3%;
+	bottom: 1.8%;
+	text-align: right;
+}
+
+.text-box{
+	position: absolute;
+	width: 30%;
+	height: 16%;
+	bottom: 0;
+	margin-left: 2%;
+}
+
+.below{
+	position: absolute;
+	font-size: 16px;
+}
+
+img.background {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.background {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.content {
+  position: absolute;
+  top: 20%;
+  left: 15.3%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  line-height: 40px;
+  font-family: 'Lato', sans-serif;
+  color: #ecf0f1;
+  height: 160px;
+  overflow: hidden;
+}
+
+.visible {
+  font-weight: 600;
+  overflow: hidden;
+  height: 40px;
+  padding: 0 40px;
+}
+
+.visible:before {
+  content: '[';
+  left: 0;
+  line-height: 40px;
+}
+
+.visible:after {
+  content: ']';
+  position: absolute;
+  right: 0;
+  line-height: 40px;
+}
+.visible:after, .visible:before {
+  position: absolute;
+  top: 0;
+  color: #16a085;
+  font-size: 42px;
+  -webkit-animation-name: opacity;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: opacity;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.content p {
+  font-family: Orbitron;
+  display: inline;
+  float: left;
+  margin: 0;
+}
+
+.content ul {
+  font-family: Orbitron;
+  margin-top: 0;
+  padding-left: 110px;
+  text-align: left;
+  list-style: none;
+  -webkit-animation-name: change;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: change;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+.content ul li {
+  line-height: 40px;
+  margin: 0;
+}
+
+@-webkit-keyframes opacity {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes change {
+  0%, 12%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  17%,29% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  34%,46% {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  51%,63% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+  68%,80% {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  85%,97% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+}
+@keyframes opacity {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes change {
+  0%, 12%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  17%,29% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  34%,46% {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  51%,63% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+  68%,80% {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  85%,97% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+}
+
+@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono);
+
+svg {
+  width: 350px;
+  height: 90px;
+  left: 1.7%;
+  display: block;
+  position: absolute;
+  bottom: 3%	;
+  overflow: hidden;
+  margin: 0 auto;
+  background: black;
+}
